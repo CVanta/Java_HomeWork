@@ -1,6 +1,7 @@
 package ru.naumen.collection.task3;
 
 import java.nio.file.Path;
+import java.util.HashMap;
 
 /**
  * <p>Написать консольное приложение, которое принимает на вход произвольный текстовый файл в формате txt.
@@ -18,6 +19,13 @@ public class WarAndPeace {
             "Лев_Толстой_Война_и_мир_Том_1,_2,_3,_4_(UTF-8).txt");
 
     public static void main(String[] args) {
-        // TODO
+        HashMap<String, Integer> dict = new HashMap<>();
+        dict.put("adasd", 2);
+        for(String word : args){
+            if(dict.containsKey(word)){
+                dict.put(word, dict.get(word)+1);
+            }
+        }
+
     }
 }

@@ -10,11 +10,24 @@ public class Ticket {
     private long id;
     private String client;
 
-    public long Get_id(){
+    public long get_id(){
         return id;
     }
 
-    public String Get_client(){
+    public String get_client(){
         return client;
+    }
+
+    @Override
+    public boolean equals(Object object){
+        if(this == object) return true;
+        if(object == null || getClass() != object.getClass()) return false;
+        Ticket that = (Ticket) object;
+        return this.client.equals(that.client) && (this.id == that.id);
+    }
+
+    @Override
+    public int hashCode(){
+        return Long.hashCode(get_id());
     }
 }
