@@ -1,5 +1,7 @@
 package ru.naumen.collection.task2;
 
+import java.util.HashMap;
+
 /**
  * Дано:
  * <pre>
@@ -24,5 +26,13 @@ package ru.naumen.collection.task2;
  */
 public class Task2 {
 
-    // TODO
+    HashMap<Ticket, String> combos = new HashMap<>();
+
+    public void Buying_food(String food, Ticket ticket){
+        combos.put(ticket, food);
+    }
+
+    public String Get_Product(Ticket ticket){
+        return combos.get(ticket);
+    }
 }
