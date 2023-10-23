@@ -26,6 +26,8 @@ public class Ticket {
         return this.client.equals(that.client) && (this.id == that.id);
     }
 
+
+
     @Override
     public int hashCode(){
         return Long.hashCode(get_id());
