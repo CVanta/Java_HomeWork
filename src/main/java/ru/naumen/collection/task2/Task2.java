@@ -1,6 +1,7 @@
 package ru.naumen.collection.task2;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Дано:

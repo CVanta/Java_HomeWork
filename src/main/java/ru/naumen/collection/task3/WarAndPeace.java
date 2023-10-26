@@ -1,7 +1,7 @@
 package ru.naumen.collection.task3;
 
 import java.nio.file.Path;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * <p>Написать консольное приложение, которое принимает на вход произвольный текстовый файл в формате txt.
