@@ -26,21 +26,22 @@ public class WarAndPeace {
         new WordParser(WAR_AND_PEACE_FILE_PATH).forEachWord(word -> {
             count.put(word, count.getOrDefault(word, 0) + 1);
         });
-        Queue<String> pqTop = new PriorityQueue<>((w1, w2) -> count.get(w2) - count.get(w1));
-        Queue<String> pqLast = new PriorityQueue<>(Comparator.comparingInt(count::get));
+        Queue<String> first = new PriorityQueue<>((w1, w2) -> count.get(w2) - count.get(w1));
+        Queue<String> last = new PriorityQueue<>(Comparator.comparingInt(count::get));
         for (String word : count.keySet()) {
-            pqTop.offer(word);
-            pqLast.offer(word);
-        }
-        System.err.println("Первые 10");
-        for (int i = 0; i < 10; i++) {
-            String word = pqTop.poll();
-            System.err.println(word + " " + count.get(word));
+            first.offer(word);
+            last.offer(word);
         }
 
-        System.err.println(" Последние 10");
+        printResult(first, count, "Первые 10");
+        printResult(last, count, "Последние 10");
+
+    }
+
+    public static void printResult(Queue<String> element, Map<String, Integer> count, String str){
+        System.err.println(str);
         for (int i = 0; i < 10; i++) {
-            String word = pqLast.poll();
+            String word = element.poll();
             System.err.println(word + " " + count.get(word));
         }
     }
