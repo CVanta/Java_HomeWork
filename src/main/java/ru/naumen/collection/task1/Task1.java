@@ -34,7 +34,13 @@ public class Task1 {
 
     /**
      * Возвращает дубликаты пользователей, которые есть в обеих коллекциях
+     *
+     *
+     * 1) Я выбрал HashSet так как благодаря тому что мы переопределили equals и hashCode теперь операция add и contains работают за О(1).
+     * 2) Сложность O(N).
+     * 3) Такая сложность, потому что мы 1 раз проходим по коллекции и за O(1) добавляем и сравниваем элементы.
      */
+
     public static List<User> findDuplicates(Collection<User> collA, Collection<User> collB) {
         List<User> dupl = new ArrayList<>();
         Set <User> setB = new HashSet<>(collB);
