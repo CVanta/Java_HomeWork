@@ -28,11 +28,11 @@ public class Task2 {
 
     HashMap<Ticket, String> combos = new HashMap<>();
 
-    public void Buying_food(String food, Ticket ticket){
+    public void buyingFood(String food, Ticket ticket){
         combos.put(ticket, food);
     }
 
-    public String Get_Product(Ticket ticket){
+    public String getProduct(Ticket ticket){
         return combos.get(ticket);
     }
 }
