@@ -26,7 +26,7 @@ import java.util.HashMap;
  */
 public class Task2 {
 
-    HashMap<Ticket, String> combos = new HashMap<>();
+    Map<Ticket, String> combos = new HashMap<>();
 
     public void buyingFood(String food, Ticket ticket){
         combos.put(ticket, food);

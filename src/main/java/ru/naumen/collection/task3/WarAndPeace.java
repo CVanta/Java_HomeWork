@@ -18,14 +18,30 @@ public class WarAndPeace {
     private static final Path WAR_AND_PEACE_FILE_PATH = Path.of("src/main/resources",
             "Лев_Толстой_Война_и_мир_Том_1,_2,_3,_4_(UTF-8).txt");
 
+
+
     public static void main(String[] args) {
-        HashMap<String, Integer> dict = new HashMap<>();
-        dict.put("adasd", 2);
-        for(String word : args){
-            if(dict.containsKey(word)){
-                dict.put(word, dict.get(word)+1);
-            }
+
+        Map<String, Integer> count = new HashMap<>();
+        new WordParser(WAR_AND_PEACE_FILE_PATH).forEachWord(word -> {
+            count.put(word, count.getOrDefault(word, 0) + 1);
+        });
+        Queue<String> pqTop = new PriorityQueue<>((w1, w2) -> count.get(w2) - count.get(w1));
+        Queue<String> pqLast = new PriorityQueue<>(Comparator.comparingInt(count::get));
+        for (String word : count.keySet()) {
+            pqTop.offer(word);
+            pqLast.offer(word);
+        }
+        System.err.println("Первые 10");
+        for (int i = 0; i < 10; i++) {
+            String word = pqTop.poll();
+            System.err.println(word + " " + count.get(word));
         }
 
+        System.err.println(" Последние 10");
+        for (int i = 0; i < 10; i++) {
+            String word = pqLast.poll();
+            System.err.println(word + " " + count.get(word));
+        }
     }
 }
