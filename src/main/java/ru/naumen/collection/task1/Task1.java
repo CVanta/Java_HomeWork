@@ -2,9 +2,7 @@ package ru.naumen.collection.task1;
 
 import ru.naumen.collection.task2.Ticket;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 /**
  * Дано:
@@ -39,8 +37,9 @@ public class Task1 {
      */
     public static List<User> findDuplicates(Collection<User> collA, Collection<User> collB) {
         List<User> dupl = new ArrayList<>();
+        Set <User> setB = new HashSet<>(collB)
         for(User user : collA){
-            if(collB.contains(user))
+            if(setB.contains(user))
                 dupl.add(user);
         }
         return dupl;
