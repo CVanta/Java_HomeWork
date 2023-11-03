@@ -1,7 +1,5 @@
 package ru.naumen.collection.task2;
 
-import java.util.Objects;
-
 /**
  * Билет
  *
@@ -21,15 +19,17 @@ public class Ticket {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ticket ticket = (Ticket) o;
-        return id == ticket.id && Objects.equals(client, ticket.client);
+    public boolean equals(Object object){
+        if(this == object) return true;
+        if(object == null || getClass() != object.getClass()) return false;
+        Ticket that = (Ticket) object;
+        return this.id == that.id;
     }
 
+
+
     @Override
-    public int hashCode() {
-        return Objects.hash(id, client);
+    public int hashCode(){
+        return Long.hashCode(get_id());
     }
 }
